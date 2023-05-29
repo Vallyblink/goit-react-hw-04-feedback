@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import css from './Feedback.module.css';
 
 class Feedback extends Component {
   state = {
@@ -42,25 +43,28 @@ class Feedback extends Component {
     const sum = this.countTotalFeedback();
 
     return (
-      <div>
-          <h1>We need your Feedback</h1>
+      <div className={css.container}>
+          <h1 className={css.containerTitle}>We need your Feedback!</h1>
 
-        <div>
-          <button onClick={this.onGoodClick}>good</button>
-          <button onClick={this.onNeutralClick}>neutral</button>
-          <button onClick={this.onBadClick}>bad</button>
+        <div className={css.feedbackButtons}>
+          <button className={css.buttonGood} onClick={this.onGoodClick}>Good!</button>
+          <button className={css.buttonNeutral} onClick={this.onNeutralClick}>Neutral</button>
+          <button className={css.buttonBad} onClick={this.onBadClick}>Bad.</button>
         </div>
 
-        <div>
-          <div>
-            <h2>Statistics</h2>
-          <p>good = {this.state.good}</p>
-          <p>neutral = {this.state.neutral}</p>
-          <p>bad = {this.state.bad}</p>
-          </div>
+        <div className={css.statistics}> 
+          <h2 className={css.statisticsTitle}>Statistics</h2>
           
-          <p>all = {sum}</p>
-          <p>Positive percentage: {this.countPositiveFeedbackPercentage()}%</p>
+          <div className={css.statisticsValue}> 
+          <p>Good = {this.state.good}</p>
+          <p>Neutral = {this.state.neutral}</p>
+          <p>Bad = {this.state.bad}</p>
+          </div>
+         
+          <div className={css.analitics}> 
+          <p>Total = {sum}</p>
+          <p>Positive feedback: {this.countPositiveFeedbackPercentage()}%</p>
+          </div>
         </div>
       </div>
     );
