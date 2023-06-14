@@ -11,7 +11,7 @@ export default function App () {
     bad: 0
   
   })
-    
+    console.log('hooooooooks')
 
    const handleFeedback = (type) => {
     setfeedbackCount((prevCounts) => ({
